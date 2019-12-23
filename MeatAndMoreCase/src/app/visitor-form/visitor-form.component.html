@@ -1,0 +1,26 @@
+{{diagnostic}}
+<div class="container">
+  <form #visitorForm="ngForm">
+    <div class="form-group">
+      <label for="typeOfVisit">Type of Visit</label>
+      <select class="form-control" id="TypeOfVisit" required [(ngModel)]="model.typeOfVisit" name= "typeOfVisit">
+        <option *ngFor="let type of typeOfVisits" [value]="type">{{type}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="name">First and LastName</label>
+      <input [(ngModel)]="model.name" name= "name" type="text" class="form-control" id="name" placeholder="Enter first and lastname" required>
+    </div>
+    <div class="form-group">
+      <label for="company">Company (optional)</label>
+      <input [(ngModel)]="model.company" name= "company" type="text" class="form-control" id="company" placeholder="Enter company">
+    </div>
+
+    <div class="form-group">
+      <label for="licensePlate">License plate (optional)</label>
+      <input [(ngModel)]="model.licensePlate" name= "licensePlate" type="text" class="form-control" id="licensePlate" placeholder="Enter license plate">
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)='onSubmit()'>Submit</button>
+  </form>
+</div>
