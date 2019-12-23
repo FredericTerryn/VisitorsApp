@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name; 
   title = 'MeatAndMoreCase';
+
+  onSubmit(){
+    //not implemented yet
+  }
 }
