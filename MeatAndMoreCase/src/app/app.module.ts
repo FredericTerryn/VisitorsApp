@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { VisitorFormComponent } from './visitor-form/visitor-form.component';
 import { LoggedInComponent } from './logged-in/logged-in.component';
+import { LogoutFormComponent } from './logout-form/logout-form.component';
 
 
 
@@ -16,7 +17,8 @@ import { LoggedInComponent } from './logged-in/logged-in.component';
   declarations: [
     AppComponent,
     VisitorFormComponent,
-    LoggedInComponent
+    LoggedInComponent,
+    LogoutFormComponent
   ],
   imports: [
     BrowserModule,

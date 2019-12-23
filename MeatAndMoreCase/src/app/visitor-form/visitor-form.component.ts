@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Visitor } from '../visitor';
+import { VisitorformService } from './visitorform.service';
 
 @Component({
   selector: 'app-visitor-form',
@@ -14,15 +15,16 @@ export class VisitorFormComponent implements OnInit {
   submitted = false; 
 
   constructor(
-    private _router: Router
+    private _router: Router, 
+    private _visitorFormService: VisitorformService
   ) { }
 
   ngOnInit() {
   }
 
   onSubmit(){
-    this.submitted = true; 
-    console.log(this.model); 
+    this.submitted = true;  
+    this._visitorFormService.newLogin(this.model); 
     this._router.navigate(['/loggedin']);
   }
 
