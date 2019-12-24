@@ -24,9 +24,15 @@ export class VisitorFormComponent implements OnInit {
 
   onSubmit(){
     this.submitted = true;  
-    this._visitorFormService.newLogin(this.model); 
-    this._router.navigate(['/loggedin']);
-  }
+    this._visitorFormService.newLogin(this.model).subscribe(
+      res => {
+        console.log(res); 
+        this._router.navigate(['/loggedin']);
+      }, err => {
+        console.log('error' + err)}
+    ); 
+  }; 
+
 
   get diagnostic() { return JSON.stringify(this.model); }
 

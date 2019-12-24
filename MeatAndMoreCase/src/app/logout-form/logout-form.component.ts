@@ -10,13 +10,27 @@ import { Visitor } from '../visitor';
 export class LogoutFormComponent implements OnInit {
 
   visitors: Visitor[]; 
+  searchString: string; 
 
   constructor(
     private _visitorService: VisitorformService
   ) {}
 
   ngOnInit() {
-    this.visitors = this._visitorService.visitors; 
+    this._visitorService.getCurrentVisitors().subscribe(
+      (res:Visitor[]) => {
+        this.visitors = res; 
+    }); 
+  }
+
+  onLogout(){
+    this._visitorService.getVisitorByName(this.searchString).subscribe(
+      (res:Visitor[]) => {
+        console.log("onlogout" + JSON.stringify(res))
+        this.visitors = res; 
+      }
+    ); 
+    console.log(this.searchString); 
   }
 
   get diagnostic() { return JSON.stringify(this.visitors); }
