@@ -25,4 +25,8 @@ export class VisitorformService {
     return this.http.get(environment.baseUrl + "visitors?q=" + searchString, {
     });
   }
+
+  logOutVisitor(visitor: Visitor) {
+    return this.http.delete(environment.baseUrl + "visitors?id=" + visitor.id); 
+  }
 }

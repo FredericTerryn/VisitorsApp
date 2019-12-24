@@ -6,7 +6,7 @@
       <label for="name">Filter current names. </label>
       <input type="text" [(ngModel)]="searchString" name="searchString" class="form-control" id="name" required>
     </div>
-    <button type="submit" (click)="onLogout()" class="btn btn-success">Search</button>
+    <button type="submit" (click)="searchVisitor()" class="btn btn-success">Search</button>
 </form>
 </div>
 
@@ -26,7 +26,7 @@
         <td>{{visitor.name}}</td>
         <td>{{visitor.company}}</td>
         <td>{{visitor.licensePlate}}</td>
-        <td><button class="btn btn-primary">Logout</button></td>
+        <td><button (click)="onLogout(visitor.id)" class="btn btn-primary">Logout</button></td>
       </tr>
     </tbody>
   </table>

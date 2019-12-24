@@ -23,14 +23,20 @@ export class LogoutFormComponent implements OnInit {
     }); 
   }
 
-  onLogout(){
+  searchVisitor(){
     this._visitorService.getVisitorByName(this.searchString).subscribe(
       (res:Visitor[]) => {
-        console.log("onlogout" + JSON.stringify(res))
         this.visitors = res; 
       }
     ); 
-    console.log(this.searchString); 
+  }
+
+  onLogout(visitor: Visitor){
+    this._visitorService.logOutVisitor(visitor).subscribe(
+      res => {
+        //todo
+      }
+    ); 
   }
 
   get diagnostic() { return JSON.stringify(this.visitors); }
