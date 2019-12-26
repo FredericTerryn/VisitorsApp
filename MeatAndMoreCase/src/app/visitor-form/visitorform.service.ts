@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment'
   providedIn: 'root'
 })
 export class VisitorformService {
+
   visitors: Visitor[] = []; 
 
   constructor( 
@@ -28,5 +29,9 @@ export class VisitorformService {
 
   logOutVisitor(visitor: Visitor) {
     return this.http.delete(environment.baseUrl + "visitors/" + visitor.id); 
+  }
+
+  getHistoryOfVisitors() {
+    return this.http.get(environment.baseUrl + "visitors/history"); 
   }
 }

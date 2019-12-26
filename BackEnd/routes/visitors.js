@@ -5,6 +5,7 @@ var repository = require('../data/repository');
 
 //REST-routes WITH EXPRESS:
 router.get('/', findAll); 
+router.get('/history', findHistoryOfVisitors); 
 router.get('/:id', findById); 
 router.post('/', addVisitor);
 router.put('/:id', function(req, res){});
@@ -22,6 +23,11 @@ function findAll(req, res){
         }); 
     }
     res.json(visitors);     
+}
+
+function findHistoryOfVisitors(req, res){
+    let pastVisitors = repository.getAllPastVisitors(); 
+    res.status(200).json(pastVisitors); 
 }
 
 function findById(req, res){

@@ -4,6 +4,7 @@ import {VisitorFormComponent } from './visitor-form/visitor-form.component';
 import {LoggedInComponent} from './logged-in/logged-in.component'; 
 import { LogoutFormComponent } from './logout-form/logout-form.component';
 import { HomeComponent } from './home/home.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent}, 
   { path: 'visitorform', component: VisitorFormComponent },
   { path: 'loggedin', component: LoggedInComponent}, 
-  { path: 'logout', component: LogoutFormComponent}
+  { path: 'logout', component: LogoutFormComponent}, 
+  { path: 'admin', component: AdminComponent}
 ];
 
 @NgModule({

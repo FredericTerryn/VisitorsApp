@@ -1,9 +1,9 @@
 const uuid = require('uuid/v3'); 
 
 var visitors = [
-  { "id": 0, "name": "Frederic Terryn", "company": "Ausy", "typeOfVisit": "Sollicitant", "licensePlate": "1WQC375" },
-  { "id": 1, "name": "Yannic Schelfout", "company": "Volt", "typeOfVisit": "Other", "licensePlate": "1AAA332" },
-  ];
+  { "id": 0, "name": "Frederic Terryn", "company": "Ausy", "typeOfVisit": "Sollicitant","dateLogin":"2019-12-26T13:12:56.712Z", "licensePlate": "1WQC375" },
+  { "id": 1, "name": "Yannic Schelfout", "company": "Volt", "typeOfVisit": "Other","dateLogin":"2019-12-26T13:12:56.712Z", "licensePlate": "1AAA332" },
+];
 
   function cleanArray(actual) {
     var newArray = [];
@@ -21,9 +21,13 @@ var pastVisitors = []
     return cleanArray(visitors); 
   }
 
+  module.exports.getAllPastVisitors = function () {
+    return cleanArray(pastVisitors); 
+  }
+
   module.exports.getVisitorById = function (id) {
     let visitor = visitors.filter((v) => v.id == id); 
-    return visitor[0];
+    return visitor[0]; 
   }
 
   module.exports.insertVisitor = function (visitor) {

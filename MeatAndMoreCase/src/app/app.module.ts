@@ -12,6 +12,7 @@ import { VisitorFormComponent } from './visitor-form/visitor-form.component';
 import { LoggedInComponent } from './logged-in/logged-in.component';
 import { LogoutFormComponent } from './logout-form/logout-form.component';
 import { HomeComponent } from './home/home.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     VisitorFormComponent,
     LoggedInComponent,
     LogoutFormComponent,
-    HomeComponent
+    HomeComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
