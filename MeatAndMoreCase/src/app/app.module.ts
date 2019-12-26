@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { VisitorFormComponent } from './visitor-form/visitor-form.component';
 import { LoggedInComponent } from './logged-in/logged-in.component';
 import { LogoutFormComponent } from './logout-form/logout-form.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -19,7 +20,8 @@ import { LogoutFormComponent } from './logout-form/logout-form.component';
     AppComponent,
     VisitorFormComponent,
     LoggedInComponent,
-    LogoutFormComponent
+    LogoutFormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

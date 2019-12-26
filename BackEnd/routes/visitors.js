@@ -17,8 +17,8 @@ function findAll(req, res){
     //if there's a request in request, return visitors based on query. 
     let qstring = req.query.q && req.query.q.toLowerCase(); 
     if(qstring){
-        visitors = visitors.filter((c) => {
-            return c.name.toLowerCase().search(qstring) > -1 || c.company.toLowerCase().search(qstring) > -1; 
+        visitors = visitors.filter((v) => {
+            return v.name.toLowerCase().search(qstring) > -1 || v.company.toLowerCase().search(qstring) > -1; 
         }); 
     }
     res.json(visitors);     
@@ -51,8 +51,8 @@ function deleteVisitor(req, res) {
     if (visitor === undefined || visitor === null)
         res.status(404).json({ 'error': 'not found: visitor with id ' + req.params.id});
     else {
-        repository.deletevisitor(visitor.id);
-        res.status(200).json(visitor);
+        repository.deleteVisitor(visitor.id);
+        res.status(200).json(visitor.id);
     }
 }
 

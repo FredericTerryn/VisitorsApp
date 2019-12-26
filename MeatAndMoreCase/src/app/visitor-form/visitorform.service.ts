@@ -27,6 +27,6 @@ export class VisitorformService {
   }
 
   logOutVisitor(visitor: Visitor) {
-    return this.http.delete(environment.baseUrl + "visitors?id=" + visitor.id); 
+    return this.http.delete(environment.baseUrl + "visitors/" + visitor.id); 
   }
 }

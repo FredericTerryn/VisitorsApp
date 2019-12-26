@@ -11,7 +11,7 @@ import { VisitorformService } from './visitorform.service';
 export class VisitorFormComponent implements OnInit {
 
   typeOfVisits = ['Supplier', 'Visitor', 'Applicant', 'Other']; 
-  model = new Visitor(0, "", "", "", ""); 
+  model = new Visitor(0, "", "", new Date(), "", ""); 
   submitted = false; 
 
   constructor(
@@ -33,7 +33,5 @@ export class VisitorFormComponent implements OnInit {
     ); 
   }; 
 
-
   get diagnostic() { return JSON.stringify(this.model); }
-
 }

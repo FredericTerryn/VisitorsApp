@@ -4,7 +4,8 @@ export class Visitor {
     public id: number,
     public name: string,
     public typeOfVisit: string,
+    public dateLogin: Date, //JAVASCRIPT MONTHS START WITH 0!!!!
     public company?: string,
-    public licensePlate?: string
+    public licensePlate?: string, 
     ){}
 }
