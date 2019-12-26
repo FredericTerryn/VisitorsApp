@@ -27,8 +27,9 @@ var pastVisitors = []
   }
 
   module.exports.insertVisitor = function (visitor) {
-    //THE FOLLOWING USE OF ID's IS JUST FOR DEMO PURPOSE, and NOT FAIL SAVE! 
-    visitor.id = visitors.length + 1; 
+    //THE FOLLOWING USE OF ID's IS JUST FOR DEMO PURPOSE, and NOT FAIL SAVE!
+    var length = visitors.length;  
+    visitor.id = visitors[length-1].id +1; 
     //add it to pastvisitors for history knowledge, and to visitors to handle current visitors
     pastVisitors.push(visitor); 
     visitors[visitor.id] = visitor;
