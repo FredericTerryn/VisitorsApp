@@ -1,5 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
+const config = require("config");
+const mongoose = require("mongoose");
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -7,6 +9,7 @@ var logger = require('morgan');
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 var visitorsRouter = require('./routes/visitors'); 
+var usersRoute = require('./routes/user.route')
 
 var app = express();
 
@@ -30,6 +33,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -41,6 +45,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/visitors', visitorsRouter); 
+app.use('/users', usersRoute); 
+
+//use config module to get the privatekey, if no private key set, end the application
+if (!config.get("myprivatekey")) {
+  console.error("FATAL ERROR: myprivatekey is not defined.");
+  process.exit(1);
+}
+
+//connect to mongodb
+mongoose
+  .connect("mongodb://localhost/nodejsauth", { useNewUrlParser: true })
+  .then(() => console.log("Connected to MongoDB..."))
+  .catch(err => console.error("Could not connect to MongoDB..."));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

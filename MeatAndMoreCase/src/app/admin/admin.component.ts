@@ -38,5 +38,4 @@ export class AdminComponent implements OnInit {
   }
 
   get diagnostic() { return JSON.stringify(this.historyOfVisitors); }
-
 }
