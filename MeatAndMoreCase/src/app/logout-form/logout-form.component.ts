@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VisitorformService } from '../visitor-form/visitorform.service';
 import { Visitor } from '../visitor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logout-form',
@@ -13,6 +14,7 @@ export class LogoutFormComponent implements OnInit {
   searchString: string; 
 
   constructor(
+    private _router: Router, 
     private _visitorService: VisitorformService
   ) {}
 
@@ -33,11 +35,16 @@ export class LogoutFormComponent implements OnInit {
 
   onLogout(visitor: Visitor){
     this._visitorService.logOutVisitor(visitor).subscribe(
-      res => {
-        //todo
+      (res: Visitor) => {
+        alert("Succesfully logged out:" + res.name); 
+        this._router.navigate(["/home"]); 
+      }, err => {
+        alert("Something went wrong.")
       }
     ); 
   }
+
+
 
   get diagnostic() { return JSON.stringify(this.visitors); }
 }

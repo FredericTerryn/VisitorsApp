@@ -14,6 +14,8 @@ import { LogoutFormComponent } from './logout-form/logout-form.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 
 
 @NgModule({
@@ -29,7 +31,7 @@ import { AdminComponent } from './admin/admin.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
-    MatInputModule, FormsModule, HttpClientModule
+    MatInputModule, FormsModule, HttpClientModule, NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
